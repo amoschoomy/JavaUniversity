@@ -2,4 +2,4 @@
 
 A place to store Bootcamp files for FIT2099-S1-2020.
 
-Bootcamp Week 2 Status: NOT PUSHED
+Bootcamp Week 2 Project Status: NOT PUSHED
