@@ -1,6 +1,6 @@
 public class University {
 
-  Unit[] unit;
+  private Unit[] units;
 
   University() {
     createUnits();
@@ -16,14 +16,14 @@ public class University {
   }
 
   public void createUnits() {
-    unit = new Unit[3];
+    units = new Unit[3];
     for (int i = 0; i < 3; i++) {
-      unit[i] = new Unit("FIT", Integer.toString(i));
+      units[i] = new Unit("FIT", Integer.toString(i));
     }
   }
 
   public void displayUnits() {
-    for (Unit u : unit) {
+    for (Unit u : units) {
       System.out.println(u.getUnitDescription());
     }
   }
