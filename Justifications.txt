@@ -1,0 +1,31 @@
+Task 4
+
+I chose String type for the student ID over int type.
+
+Advantages and Disadvantages of choosing String over int type
+
+Disadvantages: int data type have better performance than String. This makes the system's runtime to be faster in a real
+world situation.
+
+Errors in the student ID can also be detected in compile time making it easier to detect any abnormality if the student
+ID is has a different format
+
+
+Advantages:
+
+If String type is used, then the studentID can be of any format including various combinations of alphabets and numbers
+This allows for more flexible unique studentIDs.
+Example University A student ID could be just integers but University B can use a alphanumeric  characters such as
+A20C17
+
+Another possible disadvantages of int data type is there is only a fixed number of int value of 32 bit. Even though in
+real life, this 32bit limit is unlikely to be reached but it presents
+
+
+A reason on why we use givenName and familyName is because of different naming conventions around the world.
+Programmers importing our project will be confused if firstName and lastName is used instead
+
+Task 5
+
+I chose ArrayList over Array because ArrayList size is dynamic. The number of students in University is also dynamic
+since it is always changing.
