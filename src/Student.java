@@ -21,6 +21,10 @@ public class Student {
     this.familyName = familyName;
   }
 
+  public String getStudentId(){
+    return new Student(studentId).studentId;
+  }
+
   public String description() {
     return studentId + " " + givenName + " " + familyName;
   }

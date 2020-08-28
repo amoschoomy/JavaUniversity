@@ -29,3 +29,12 @@ Task 5
 
 I chose ArrayList over Array because ArrayList size is dynamic. The number of students in University is also dynamic
 since it is always changing.
+
+
+
+WEEK 4 TASK 1 JUSTIFICATION
+
+
+I chose HashSet because it can access studentIDs in O(1) time without transversing through HashSet. Since the order of
+ student ID is not important, TreeSet is unnecessary here. As we know, studentIDs are unique and no duplicates,
+ hashSet also does not allow duplicates.
