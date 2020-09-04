@@ -4,10 +4,16 @@ public class Student {
   private String familyName;
 
   Student(String newStudentId) {
+    if (newStudentId.length() != 8) {
+      throw new IllegalArgumentException("Student ID must be of 8 digits only");
+    }
     this.studentId = newStudentId;
   }
 
   Student(String newStudentId, String newGivenName, String newFamilyName) {
+    if (newStudentId.length() != 8) {
+      throw new IllegalArgumentException("Student ID must be of 8 digits only");
+    }
     this.studentId = newStudentId;
     this.givenName = newGivenName;
     this.familyName = newFamilyName;
@@ -21,7 +27,7 @@ public class Student {
     this.familyName = familyName;
   }
 
-  public String getStudentId(){
+  public String getStudentId() {
     return new Student(studentId).studentId;
   }
 

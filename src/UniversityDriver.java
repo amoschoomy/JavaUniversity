@@ -5,5 +5,6 @@ public class UniversityDriver {
       u.setUniversity(Monash);
     }
     Monash.printStatus();
+    Monash.testMark();
   }
 }

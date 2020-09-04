@@ -51,4 +51,41 @@ public class Unit {
     }
     return assessments;
   }
+
+  public boolean isEnrolled(String studentID) {
+    boolean status = false;
+    for (Student student : getEnrolledStudentList()) {
+      if (student.getStudentId().equals(studentID)) {
+        status = true;
+      }
+    }
+    return status;
+  }
+
+  public boolean completedAllAssessments(String studentID) {
+    boolean status = true;
+    for (Assessment a : assessmentScheme.getAssessments()) {
+      if (a.getStudentMark(studentID) == null) {
+        status = false;
+      }
+    }
+    return status;
+  }
+
+  public double getTotalStudentMarks(String studentID) {
+    double totalMarks = 0;
+    if (completedAllAssessments(studentID) && isEnrolled(studentID)) {
+      for (Assessment a : assessmentScheme.getAssessments()) {
+        //        System.out.println(a.getWeight());
+        totalMarks += a.getStudentMark(studentID).getTotalMarks() * (a.getWeight());
+      }
+    }
+    return totalMarks / 100;
+  }
+
+  public void setStudentMark(String studentID, Mark mark, Assessment assessment) {
+    if (assessmentScheme.getAssessments().contains(assessment) && isEnrolled(studentID)) {
+      assessment.addStudentMarks(studentID, mark);
+    }
+  }
 }
