@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class University {
@@ -10,9 +11,11 @@ public class University {
   private Exam exam2 = new Exam(40, 69);
   private Assignment bootcamp = new Assignment(30, "JavaBootCamp");
   private Assignment JavaKing = new Assignment(70, "Java Experts");
+  private HashSet<Course> courses = new HashSet<>();
 
   University() {
     createUnits();
+    createCourses();
   }
 
   public void printStatus() {
@@ -23,7 +26,6 @@ public class University {
   }
 
   public void createUnits() {
-    units = new ArrayList<>();
     // Test for asssesment creation
     try {
       Exam fakeExam = new Exam(-5, 45);
@@ -55,6 +57,7 @@ public class University {
     FIT1234AS.addAssessments(exam);
     FIT1234AS.addAssessments(JavaKing);
     units.add(new Unit("FIT1234", "OOP", FIT1234AS));
+    units.add(new Unit("FIT1212", "Failure", FIT1234AS));
 
     Scanner sc = new Scanner(System.in);
     for (int i = 0; i < 1; i++) {
@@ -104,6 +107,27 @@ public class University {
     }
   }
 
+  public void createCourses() {
+    try {
+      Course CS = new Course("Bachelor of CS", 0, 1);
+      Course SE = new Course("Bachelor of SE", 4, 0);
+    } catch (IllegalArgumentException e) {
+      e.printStackTrace();
+    }
+    Course ComputerScienceMaster = new Course("CS Master", 2, 1);
+    Course CodingExpert = new Course("Coding Experts", 1, 1);
+    courses.add(CodingExpert);
+    courses.add(ComputerScienceMaster);
+    CodingExpert.addUnittoCore(units.get(0));
+    ComputerScienceMaster.addUnittoCore(units.get(1));
+    ComputerScienceMaster.addUnittoCore(units.get(0));
+    try {
+      ComputerScienceMaster.addUnittoElective(units.get(1));
+    } catch (IllegalArgumentException e) {
+      e.printStackTrace();
+    }
+  }
+
   public void displayUnits() {
     for (Unit u : units) {
       System.out.println(u.description() + "\n" + "Enrolled Students:");
@@ -125,5 +149,13 @@ public class University {
 
   public ArrayList<Unit> getUnits() {
     return new ArrayList<>(units);
+  }
+
+  public void displayGraduates() {
+    System.out.println("Graduates: \n");
+    for (Course c : courses) {
+      System.out.println(c.getName() + "\n");
+      System.out.println(c.listOfStudentsEligibleTOGraduate());
+    }
   }
 }
